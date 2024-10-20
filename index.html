@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head charset="UTF-8">
+  <title>GitのMarkdown見づらいなぁ</title>
+  <style>
+    #before-text, #after-text {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h2>markdownのテキストを入力してください。</h2>
+  <div id="before">
+    <label for="before-text">変更前</label>
+    <textarea id="before-text"></textarea>
+  </div>
+  <div>
+    <button id="convert-button">変換</button>
+  </div>
+  <div id="after">
+    <label for="after-text">変更後</label>
+    <textarea id="after-text" readonly></textarea>
+  </div>
+
+  <script>
+    const convertButton = document.querySelector('#convert-button');
+    convertButton.addEventListener('click', () => {
+      const lines = addSpace();
+      const afterText = document.querySelector("#after-text");
+      afterText.value = lines.join("\n");
+
+      navigator.clipboard.writeText(afterText.value);
+    });
+
+    function addSpace() {
+      const beforeText = document.querySelector('#before-text');
+      const lines = beforeText.value.split('\n');
+      return lines.map(elm => elm + getSpace(elm));
+    }
+
+    function getSpace(line) {
+      const SPACE = " ";
+      const EMPTY = "";
+      const NEW_LINE_SPACE = SPACE.repeat(2);
+
+      if(line.length === 0) return EMPTY;
+      if(line.length === 1) return NEW_LINE_SPACE;
+      if(line.substring(line.length - 2) === NEW_LINE_SPACE) return EMPTY;
+      if(line.substring(line.length - 1)) return SPACE;
+
+      return NEW_LINE_SPACE;
+    }
+
+  </script>
+</body>
+</html>
