@@ -4,7 +4,7 @@
 自分がQiitaに投稿した内容はこちらです。
 https://qiita.com/_wow_/items/6f7d3bb722cc3286f7c5
 
---- 
+---
 
 # vscodeでphpのセットアップ
 
@@ -109,3 +109,4 @@ XAMPP(ザンプ)のApacheを再起動します。
 設定パス: /xampp/htdocs/Sample/public
 
 https://webstyle.work/xampp-document-root/
+
