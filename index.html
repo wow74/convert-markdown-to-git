@@ -46,7 +46,7 @@
       if(line.length === 0) return EMPTY;
       if(line.length === 1) return NEW_LINE_SPACE;
       if(line.substring(line.length - 2) === NEW_LINE_SPACE) return EMPTY;
-      if(line.substring(line.length - 1)) return SPACE;
+      if(line.substring(line.length - 1) === SPACE) return SPACE;
 
       return NEW_LINE_SPACE;
     }
